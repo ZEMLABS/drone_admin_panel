@@ -1,4 +1,3 @@
-// src/App.tsx//
 import {useEffect} from 'react';
 import {
   BrowserRouter as Router,
@@ -13,12 +12,11 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import React from 'react';
 import Dashboard from './pages/Dashboard';
-// import EditProduct from './pages/EditProduct';
 import ProductList from './pages/ProductList';
-// import AddProduct from './pages/AddEditProduct';
 import ManageImages from './pages/ManageImages';
 
 import AddEditProduct from './pages/AddEditProduct';
+import Navbar from './components/Navbar';
 
 import Login from './pages/Login';
 // import Signup from './pages/auth/Signup';
@@ -69,6 +67,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
+        <Navbar />
         {/* <Routes>
           <Route path='/' element={<Dashboard />} />
           <Route path='/products' element={<ProductList />} />
@@ -132,22 +131,18 @@ export default function App() {
           />
 
           <Route
-            // path="/products/:id"
             path="/products/edit-product/:id"
             element={
               <ProtectedRoute>
-                {/* <EditProduct /> */}
                 <AddEditProduct />
               </ProtectedRoute>
             }
           />
 
           <Route
-            // path="/add-product"
             path="/products/add-product"
             element={
               <ProtectedRoute>
-                {/* <AddProduct /> */}
                 <AddEditProduct />
               </ProtectedRoute>
             }
