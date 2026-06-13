@@ -1,17 +1,54 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+import './index.css';
+
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+
+import { Toaster } from 'react-hot-toast';
+
+const root = ReactDOM.createRoot(
+    document.getElementById('root'),
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+root.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <App />
+
+            <Toaster
+                position="top-right"
+                toastOptions={{
+                    duration: 4000,
+
+                    style: {
+                        background: '#101624',
+                        color: '#fff',
+                        border:
+                            '1px solid rgba(255,255,255,0.1)',
+                    },
+
+                    success: {
+                        style: {
+                            border:
+                                '1px solid #00E676',
+                        },
+                    },
+
+                    error: {
+                        style: {
+                            border:
+                                '1px solid #FF5252',
+                        },
+                    },
+                }}
+            />
+        </Provider>
+    </React.StrictMode>,
+);
+
 reportWebVitals();

@@ -22,7 +22,7 @@ export default function Dashboard() {
         sx={{ mx: 2 }}
         variant='contained'
         color='primary'
-        onClick={() => navigate('/add-product')}
+        onClick={() => navigate('/products/add-product')}
       >
         Add Product
       </Button>
